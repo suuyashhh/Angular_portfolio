@@ -1,0 +1,115 @@
+
+     <main class="relative z-10 max-w-6xl mx-auto px-6 py-20">
+        <!-- Projects Section -->
+        <section id="projects" class="mb-20">
+            <h2 class="text-3xl font-bold mb-8 pb-2 border-b-2 border-accent inline-block text-gradient">My Recent Works</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- ChatVerse Card -->
+                <div class="project-card glow-hover" onmousemove="updateGlowPosition(event, this)">
+                    <div class="relative h-64 overflow-hidden">
+                        <!-- Carousel Images -->
+                        <div class="relative h-full w-full">
+                            <img src="../../../assets/img/pro1.png" alt="ChatVerse App" class="carousel-image opacity-100" id="chatverse-img-1">
+                            <img src="../../../assets/img/Doctor Img.jpg" alt="ChatVerse App" class="carousel-image opacity-0" id="chatverse-img-2">
+                            <img src="../../../assets/img/pro2.png" alt="ChatVerse App" class="carousel-image opacity-0" id="chatverse-img-3">
+                        </div>
+                        
+                        <!-- Carousel Navigation -->
+                        <button class="carousel-btn left-4" onclick="prevImage('chatverse')">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-btn right-4" onclick="nextImage('chatverse')">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        
+                        <div class="absolute bottom-4 left-4">
+                            <span class="bg-accent text-dark px-3 py-1 rounded-full text-sm font-bold">MERN Stack</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-accent">ChatVerse - Chat App</h3>
+                        <p class="text-light/80 mb-5">Chat-Verse is a Chat application build using MERN Stack and Web Sockets facilitating efficient and real-time communication between users.</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tech-badge hover:bg-blue-500/10 hover:text-blue-400">React JS</span>
+                            <span class="tech-badge hover:bg-purple-500/10 hover:text-purple-400">MongoDB</span>
+                            <span class="tech-badge hover:bg-green-500/10 hover:text-green-400">Socket.io</span>
+                            <span class="tech-badge hover:bg-pink-500/10 hover:text-pink-400">Tailwind CSS</span>
+                            <span class="tech-badge hover:bg-yellow-500/10 hover:text-yellow-400">DaisyUI</span>
+                            <span class="tech-badge hover:bg-indigo-500/10 hover:text-indigo-400">Zustand</span>
+                            <span class="tech-badge hover:bg-red-500/10 hover:text-red-400">React-Router</span>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-3">
+                            <a href="#" class="py-2 px-2 bg-accent/10 border border-accent/50 rounded-lg text-center text-accent hover:bg-accent/20 transition-colors text-sm">
+                                <i class="fas fa-code mr-1"></i> Code
+                            </a>
+                            <a href="#" class="py-2 px-2 bg-primary/10 border border-primary/50 rounded-lg text-center text-primary hover:bg-primary/20 transition-colors text-sm">
+                                <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                            </a>
+                            <a href="#" class="py-2 px-2 bg-green-500/10 border border-green-500/50 rounded-lg text-center text-green-400 hover:bg-green-500/20 transition-colors text-sm">
+                                <i class="fab fa-android mr-1"></i> Android
+                            </a>
+                            <a href="#" class="py-2 px-2 bg-purple-500/10 border border-purple-500/50 rounded-lg text-center text-purple-400 hover:bg-purple-500/20 transition-colors text-sm">
+                                <i class="fas fa-desktop mr-1"></i> Desktop
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pictoria Card -->
+                <div class="project-card glow-hover" onmousemove="updateGlowPosition(event, this)">
+                    <div class="relative h-64 overflow-hidden">
+                        <!-- Carousel Images -->
+                        <div class="relative h-full w-full">
+                            <img src="../../../assets/img/pro1.png" alt="Pictoria App" class="carousel-image opacity-100" id="pictoria-img-1">
+                            <img src="../../../assets/img/pro1.png" alt="Pictoria App" class="carousel-image opacity-0" id="pictoria-img-2">
+                            <img src="../../../assets/img/pro1.png" alt="Pictoria App" class="carousel-image opacity-0" id="pictoria-img-3">
+                        </div>
+                        
+                        <!-- Carousel Navigation -->
+                        <button class="carousel-btn left-4" onclick="prevImage('pictoria')">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-btn right-4" onclick="nextImage('pictoria')">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        
+                        <div class="absolute bottom-4 left-4">
+                            <span class="bg-secondary text-dark px-3 py-1 rounded-full text-sm font-bold">Blog Platform</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-secondary">Pictoria - Blog App</h3>
+                        <p class="text-light/80 mb-5">Pictoria App is a dynamic and responsive blogging web application that allows users to explore, read, and manage blog posts seamlessly.</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tech-badge hover:bg-blue-500/10 hover:text-blue-400">React JS</span>
+                            <span class="tech-badge hover:bg-pink-500/10 hover:text-pink-400">Tailwind CSS</span>
+                            <span class="tech-badge hover:bg-yellow-500/10 hover:text-yellow-400">JavaScript</span>
+                            <span class="tech-badge hover:bg-red-500/10 hover:text-red-400">Appwrite</span>
+                            <span class="tech-badge hover:bg-purple-500/10 hover:text-purple-400">Redux</span>
+                            <span class="tech-badge hover:bg-red-500/10 hover:text-red-400">React-Router</span>
+                            <span class="tech-badge hover:bg-black/10 hover:text-white">Vercel</span>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-3">
+                            <a href="#" class="py-2 px-2 bg-accent/10 border border-accent/50 rounded-lg text-center text-accent hover:bg-accent/20 transition-colors text-sm">
+                                <i class="fas fa-code mr-1"></i> Code
+                            </a>
+                            <a href="#" class="py-2 px-2 bg-primary/10 border border-primary/50 rounded-lg text-center text-primary hover:bg-primary/20 transition-colors text-sm">
+                                <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                            </a>
+                            <a href="#" class="py-2 px-2 bg-green-500/10 border border-green-500/50 rounded-lg text-center text-green-400 hover:bg-green-500/20 transition-colors text-sm">
+                                <i class="fab fa-android mr-1"></i> Android
+                            </a>
+                            <a href="#" class="py-2 px-2 bg-purple-500/10 border border-purple-500/50 rounded-lg text-center text-purple-400 hover:bg-purple-500/20 transition-colors text-sm">
+                                <i class="fas fa-desktop mr-1"></i> Desktop
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
