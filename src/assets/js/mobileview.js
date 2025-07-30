@@ -1,82 +1,107 @@
- const menuButton = document.getElementById('mobile-menu-button');
-        const menu = document.getElementById('mobile-menu');
+const menuButton = document.getElementById('mobile-menu-button');
+const menu = document.getElementById('mobile-menu');
 
-        menuButton.addEventListener('click', function () {
-            menu.classList.toggle('hidden');
-            menuButton.innerHTML = menu.classList.contains('hidden')
-                ? '<i class="fas fa-bars"></i>'
-                : '<i class="fas fa-times"></i>';
-        });
+menuButton.addEventListener('click', function () {
+    menu.classList.toggle('hidden');
+    menuButton.innerHTML = menu.classList.contains('hidden')
+        ? '<i class="fas fa-bars"></i>'
+        : '<i class="fas fa-times"></i>';
+});
 
-        // Active link handling
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function () {
-                document.querySelectorAll('.nav-link').forEach(nav => nav.classList.remove('active'));
-                this.classList.add('active');
-                menu.classList.add('hidden');
-                menuButton.innerHTML = '<i class="fas fa-bars"></i>';
+// Active link handling
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function () {
+        document.querySelectorAll('.nav-link').forEach(nav => nav.classList.remove('active'));
+        this.classList.add('active');
+        menu.classList.add('hidden');
+        menuButton.innerHTML = '<i class="fas fa-bars"></i>';
+    });
+});
+
+// Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
             });
-        });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-          // Download PDF function
-        function downloadPDF() {
-            const link = document.createElement('a');
-            link.href = '/img/SuyashPatilResume.pdf';
-            link.download = 'SuyashPatilResume.pdf';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
         }
+    });
+});
 
-        // Handle PDF load
-        function handlePDFLoad() {
-            const loadingOverlay = document.getElementById('loadingOverlay');
-            if (loadingOverlay) {
-                loadingOverlay.style.display = 'none';
-            }
-        }
 
-        // Open PDF in new tab
-        function openInNewTab() {
-            window.open('/img/SuyashPatilResume.pdf', '_blank');
-        }
+const imageIndex = {
+    chatverse: 1,
+    pictoria: 1
+};
 
-        // Hide loading overlay after a timeout (fallback)
-        setTimeout(() => {
-            const loadingOverlay = document.getElementById('loadingOverlay');
-            if (loadingOverlay) {
-                loadingOverlay.style.display = 'none';
-            }
-        }, 3000);
+function showImage(project, index) {
+    const images = document.querySelectorAll(`#${project}-img-1, #${project}-img-2, #${project}-img-3`);
+    images.forEach((img, i) => {
+        img.style.opacity = (i + 1 === index) ? "1" : "0";
+    });
+}
 
-        // Add smooth scroll behavior
-        document.addEventListener('DOMContentLoaded', function() {
-            // Additional PDF viewer enhancements
-            const pdfViewer = document.getElementById('pdfViewer');
-            
-            // Handle iframe load errors
-            if (pdfViewer) {
-                pdfViewer.onerror = function() {
-                    console.log('PDF failed to load in iframe');
-                    // Show fallback content
-                    const fallback = document.createElement('div');
-                    fallback.innerHTML = `
+function nextImage(project) {
+    imageIndex[project]++;
+    if (imageIndex[project] > 3) imageIndex[project] = 1;
+    showImage(project, imageIndex[project]);
+}
+
+function prevImage(project) {
+    imageIndex[project]--;
+    if (imageIndex[project] < 1) imageIndex[project] = 3;
+    showImage(project, imageIndex[project]);
+}
+
+// Download PDF function
+function downloadPDF() {
+    const link = document.createElement('a');
+    link.href = '../../../assets/img/SuyashPatilResume.pdf';
+    link.download = 'SuyashPatilResume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+// Handle PDF load
+function handlePDFLoad() {
+    const loadingOverlay = document.getElementById('loadingOverlay');
+    if (loadingOverlay) {
+        loadingOverlay.style.display = 'none';
+    }
+}
+
+// Open PDF in new tab
+function openInNewTab() {
+    window.open('../../../assets/img/SuyashPatilResume.pdff', '_blank');
+}
+
+// Hide loading overlay after a timeout (fallback)
+setTimeout(() => {
+    const loadingOverlay = document.getElementById('loadingOverlay');
+    if (loadingOverlay) {
+        loadingOverlay.style.display = 'none';
+    }
+}, 3000);
+
+// Add smooth scroll behavior
+document.addEventListener('DOMContentLoaded', function () {
+    // Additional PDF viewer enhancements
+    const pdfViewer = document.getElementById('pdfViewer');
+
+    // Handle iframe load errors
+    if (pdfViewer) {
+        pdfViewer.onerror = function () {
+            console.log('PDF failed to load in iframe');
+            // Show fallback content
+            const fallback = document.createElement('div');
+            fallback.innerHTML = `
                         <div class="flex flex-col items-center justify-center h-96 bg-slate-100 text-slate-600">
                             <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="w-16 h-16 mb-4 text-slate-400">
                                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -95,9 +120,9 @@
                             </button>
                         </div>
                     `;
-                    pdfViewer.parentNode.replaceChild(fallback, pdfViewer);
-                };
-            }
-            
-            console.log('Resume viewer loaded successfully');
-        });
+            pdfViewer.parentNode.replaceChild(fallback, pdfViewer);
+        };
+    }
+
+    console.log('Resume viewer loaded successfully');
+});
