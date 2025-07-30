@@ -37,7 +37,7 @@
           // Download PDF function
         function downloadPDF() {
             const link = document.createElement('a');
-            link.href = '/img/SuyashPatilResume.pdf';
+            link.href = '../../../assets/img/SuyashPatilResume.pdf';
             link.download = 'SuyashPatilResume.pdf';
             document.body.appendChild(link);
             link.click();
@@ -54,7 +54,7 @@
 
         // Open PDF in new tab
         function openInNewTab() {
-            window.open('/img/SuyashPatilResume.pdf', '_blank');
+            window.open('../../../assets/img/SuyashPatilResume.pdff', '_blank');
         }
 
         // Hide loading overlay after a timeout (fallback)
