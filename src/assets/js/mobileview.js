@@ -34,14 +34,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-
+// Carousel functionality
 const imageIndex = {
     chatverse: 1,
-    pictoria: 1
+    pictoria: 1,
+    Dairy:1
 };
 
 function showImage(project, index) {
-    const images = document.querySelectorAll(`#${project}-img-1, #${project}-img-2, #${project}-img-3`);
+    const images = document.querySelectorAll(`#${project}-img-1, #${project}-img-2, #${project}-img-3,#${project}-img-4`);
     images.forEach((img, i) => {
         img.style.opacity = (i + 1 === index) ? "1" : "0";
     });
@@ -49,15 +50,23 @@ function showImage(project, index) {
 
 function nextImage(project) {
     imageIndex[project]++;
-    if (imageIndex[project] > 3) imageIndex[project] = 1;
+    if (imageIndex[project] > 4) imageIndex[project] = 1;
     showImage(project, imageIndex[project]);
 }
 
 function prevImage(project) {
     imageIndex[project]--;
-    if (imageIndex[project] < 1) imageIndex[project] = 3;
+    if (imageIndex[project] < 1) imageIndex[project] = 4;
     showImage(project, imageIndex[project]);
 }
+
+// Initialize images
+document.addEventListener('DOMContentLoaded', () => {
+    showImage('chatverse', 1);
+    showImage('pictoria', 1);
+    showImage('Dairy', 1);
+});
+
 
 // Download PDF function
 function downloadPDF() {
